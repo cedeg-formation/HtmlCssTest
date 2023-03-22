@@ -1,9 +1,28 @@
-const f = document.getElementById("imageText");
+const imageText = document.getElementById("imageText");
+const textVanilla = imageText.innerText;
+let count = 0;
 document.addEventListener(
     "click",
     (ev) => {
-        f.style.transform = `translateY(${ev.clientY - 25}px)`;
-        f.style.transform += `translateX(${ev.clientX - 25}px)`;
+        imageText.style.transform = `translateY(${ev.clientY - 25}px)`;
+        imageText.style.transform += `translateX(${ev.clientX - 25}px)`;
+        changeText(imageText);
     },
     false
 );
+
+const getRandomInt = (max) => {
+    return Math.floor(Math.random() * max);
+}
+
+const changeText = (element) => {
+    if (count > 5) {
+        element.innerText = textVanilla;
+        count = 0;
+        return
+    }
+    const randomInt = getRandomInt(element.innerText.length)
+    element.innerText = element.innerText.replace(element.innerText[randomInt], '00');
+    count++;
+}
+

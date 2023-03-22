@@ -4,7 +4,6 @@ let count = 0;
 document.addEventListener("click", (ev)=>{
     imageText.style.transform = `translateY(${ev.clientY - 25}px)`;
     imageText.style.transform += `translateX(${ev.clientX - 25}px)`;
-    changeText(imageText);
 }, false);
 const getRandomInt = (max)=>{
     return Math.floor(Math.random() * max);
@@ -19,5 +18,6 @@ const changeText = (element)=>{
     element.innerText = element.innerText.replace(element.innerText[randomInt], "00");
     count++;
 };
+setInterval(changeText, 800, imageText);
 
 //# sourceMappingURL=index.09c24910.js.map

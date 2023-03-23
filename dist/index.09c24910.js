@@ -19,5 +19,20 @@ const changeText = (element)=>{
     count++;
 };
 setInterval(changeText, 800, imageText);
+let logEl = document.querySelector(".battery-log");
+let battery = {
+    charged: "0%",
+    cycles: 120
+};
+anime({
+    targets: battery,
+    charged: "100%",
+    cycles: 130,
+    round: 1,
+    easing: "linear",
+    update: function() {
+        logEl.innerHTML = JSON.stringify(battery);
+    }
+});
 
 //# sourceMappingURL=index.09c24910.js.map

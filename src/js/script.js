@@ -27,4 +27,25 @@ const changeText = (element) => {
 }
 setInterval(changeText, 800, imageText);
 
+// ANIMEJS
+// https://animejs.com/documentation/#JSobject
 
+import anime from '../../node_modules/animejs/lib/anime.es.js';
+
+let logEl = document.querySelector('.battery-log');
+
+let battery = {
+    charged: '0%',
+    cycles: 110
+}
+
+anime({
+    targets: battery,
+    charged: '100%',
+    cycles: 130,
+    round: 1,
+    easing: 'linear',
+    update: function() {
+        logEl.innerHTML = JSON.stringify(battery);
+    }
+});
